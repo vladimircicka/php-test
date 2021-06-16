@@ -5,6 +5,8 @@ RUN apk update && apk --no-cache add \
 
 RUN rm -rf /var/cache/apk/*
 
+RUN docker-php-ext-install pdo pdo_mysql 
+
 RUN curl -sS https://getcomposer.org/installer -o composer-setup.php
 RUN php composer-setup.php --install-dir=/usr/bin --filename=composer
 RUN rm -rf composer-setup.php
